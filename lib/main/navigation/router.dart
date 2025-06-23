@@ -1,7 +1,7 @@
-import 'package:codebase_project_assignment/data/models/user_detail_arguments.dart';
+import 'package:codebase_project_assignment/feature/user_list/data/models/user_detail_arguments.dart';
+import 'package:codebase_project_assignment/feature/user_list/presentation/pages/user_detail_page.dart';
 import 'package:codebase_project_assignment/main/navigation/route_paths.dart';
 import 'package:flutter/material.dart';
-import '../../presentation/pages/user_detail_page.dart';
 
 Route<dynamic>? generateRoute(RouteSettings settings) {
   switch (settings.name) {
