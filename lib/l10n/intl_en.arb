@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "userDirectory": "User Directory",
+  "searchHint": "Search by name...",
+  "noUsersFound": "No users found.",
+  "userDetails": "User Details",
+  "errorLoadingUsers": "Error loading users",
+  "backOnline": "You're back online!",
+  "offline": "You're offline",
+  "errorMsg": "Something went wrong. Please try again later.",
+  "serverError": "Server Error, try again later",
+  "noInternetAndCached": "No Internet and No Cached Data Found.",
+  "noInternet": "No Internet Connection.",
+  "errorTimeout": "Request timed out. Please try again.",
+  "errorUnauthorized": "Unauthorized access. Please login again."
+}
