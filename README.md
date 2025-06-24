@@ -60,7 +60,6 @@ lib/
 ### **1️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/ravneet-neosoft/codebase_project_assignment.git
-cd codebase_project_assignment
 ```
 
 ### **2️⃣ Install Dependencies**
