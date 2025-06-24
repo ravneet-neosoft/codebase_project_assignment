@@ -44,20 +44,19 @@ class _UserListViewState extends State<UserListView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ConnectivityBloc, ConnectivityState>(
-      listenWhen: (previous, current) => previous != current,
-      listener: (context, state)  {
-        final bloc = context.read<UserBloc>();
-        if (state is ConnectivityBackOnline) {
-          bloc.add(RefreshUserListEvent());
-        }
-      },
-      child:  Column(
+    return BlocBuilder<ConnectivityBloc, ConnectivityState>(
+        builder: (context, state) {
+      final bloc = context.read<UserBloc>();
+      if (state is ConnectivityBackOnline) {
+        bloc.add(RefreshUserListEvent());
+      }
+       return Column(
         children: [
-          UserListHeader(),
+          UserListHeader(connectivityState: state),
           Expanded(child: UserListBody(scrollController: _scrollController)),
         ],
-      ),
+      );
+        }
     );
   }
 }
