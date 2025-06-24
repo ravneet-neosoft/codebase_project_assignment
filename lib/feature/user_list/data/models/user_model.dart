@@ -1,22 +1,38 @@
-// ignore_for_file: invalid_annotation_target
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'user_model.freezed.dart';
-part 'user_model.g.dart';
+part 'user_model.g.dart'; // Required for both Hive + JSON
 
-@freezed
-class UserModel with _$UserModel {
-  factory UserModel({
-    required String email,
-    required int id,
-    @JsonKey(name: 'first_name') required String firstName,
-    @JsonKey(name: 'last_name') required String lastName,
-    required String avatar,
-  }) = _UserModel;
+@HiveType(typeId: 0)
+@JsonSerializable()
+class UserModel {
+  @HiveField(0)
+  final String email;
+
+  @HiveField(1)
+  final int id;
+
+  @HiveField(2)
+  @JsonKey(name: 'first_name')
+  final String firstName;
+
+  @HiveField(3)
+  @JsonKey(name: 'last_name')
+  final String lastName;
+
+  @HiveField(4)
+  final String avatar;
+
+  UserModel({
+    required this.email,
+    required this.id,
+    required this.firstName,
+    required this.lastName,
+    required this.avatar,
+  });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }
-
-
-

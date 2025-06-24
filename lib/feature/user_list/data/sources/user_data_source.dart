@@ -1,12 +1,11 @@
-import 'dart:convert';
+import 'package:codebase_project_assignment/core/utils/hive_services.dart';
 import 'package:codebase_project_assignment/feature/user_list/data/api/user_api_service.dart';
 import 'package:codebase_project_assignment/feature/user_list/data/models/user_list_response_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:codebase_project_assignment/feature/user_list/data/models/user_model.dart';
 
 abstract class UserDataSource {
   Future<UserListResponseModel> fetchUsers({required int page});
 }
-
 
 class UserRemoteDataSourceImpl implements UserDataSource {
   final UserApiService apiService;
@@ -19,32 +18,24 @@ class UserRemoteDataSourceImpl implements UserDataSource {
   }
 }
 
-
 class UserLocalDataSourceImpl implements UserDataSource {
-  final SharedPreferences prefs;
-  static const _cacheKey = 'cached_user_list';
+  final HiveService hiveService;
 
-  UserLocalDataSourceImpl(this.prefs);
-
+  UserLocalDataSourceImpl(this.hiveService);
 
   @override
   Future<UserListResponseModel> fetchUsers({required int page}) async {
-    final jsonStr = prefs.getString(_cacheKey);
-    if (jsonStr == null || jsonStr.isEmpty) {
-      return UserListResponseModel(
-        page: 1,
-        perPage: 10,
-        total: 0,
-        totalPages: 0,
-        users: [],
-      );
-    }
-    final  decoded = jsonDecode(jsonStr);
-    return UserListResponseModel.fromJson(decoded);
+    final List<UserModel> allUsers = await hiveService.getUserList();
+    List<UserModel>? paginatedUserList = hiveService.getUsersForPage(
+      allUsers,
+      page,
+    );
+    return UserListResponseModel(
+      page: 1,
+      perPage: 10,
+      total: paginatedUserList.length,
+      totalPages: 1,
+      users: paginatedUserList,
+    );
   }
-
-
-
-
-
- }
+}

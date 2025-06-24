@@ -15,5 +15,3 @@ class ConnectivityNotify extends ConnectivityEvent {
   @override
   List<Object?> get props => [isOnline];
 }
-
-

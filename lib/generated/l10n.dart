@@ -164,12 +164,6 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Request timed out. Please try again.'**
   String get errorTimeout;
-
-  /// No description provided for @errorUnauthorized.
-  ///
-  /// In en, this message translates to:
-  /// **'Unauthorized access. Please login again.'**
-  String get errorUnauthorized;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

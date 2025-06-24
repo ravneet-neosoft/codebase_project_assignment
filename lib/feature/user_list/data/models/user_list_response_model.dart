@@ -21,22 +21,10 @@ class UserListResponseModel {
       perPage: json['per_page'] ?? 10,
       total: json['total'] ?? 0,
       totalPages: json['total_pages'] ?? 0,
-      users: (json['data'] as List<dynamic>? ?? [])
-          .map((e) => UserModel.fromJson(e))
-          .toList(),
+      users:
+          (json['data'] as List<dynamic>? ?? [])
+              .map((e) => UserModel.fromJson(e))
+              .toList(),
     );
   }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'page': page,
-      'per_page': perPage,
-      'total': total,
-      'total_pages': totalPages,
-      'data': users.map((u) => u.toJson()).toList(),
-    };
-  }
-
-  /// Convert to domain list of UserEntity
-  // List<UserEntity> toEntityList() => users.map((user) => user.toEntity()).toList();
 }

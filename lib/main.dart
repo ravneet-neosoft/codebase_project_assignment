@@ -9,12 +9,19 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/service/network_connectivity.dart';
 import 'core/theme/app_theme.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'feature/user_list/data/models/user_model.dart';
 import 'main/navigation/router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   await init();
+  // Initialize Hive
+  await Hive.initFlutter();
+
+  // Register adapters
+  Hive.registerAdapter(UserModelAdapter());
   runApp(const MyApp());
 }
 

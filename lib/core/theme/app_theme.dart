@@ -14,7 +14,11 @@ class AppTheme {
       iconTheme: IconThemeData(color: AppColors.textPrimary),
     ),
     textTheme: const TextTheme(
-      titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppColors.textPrimary,
+      ),
       bodyMedium: TextStyle(fontSize: 16, color: AppColors.textSecondary),
       labelSmall: TextStyle(fontSize: 12, color: AppColors.textSecondary),
     ),
@@ -41,5 +45,4 @@ class AppTheme {
       error: AppColors.error,
     ),
   );
-
 }

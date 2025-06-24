@@ -17,10 +17,7 @@ class ApiClient {
         baseUrl: baseUrl,
         connectTimeout: const Duration(seconds: 10),
         receiveTimeout: const Duration(seconds: 10),
-        headers: {
-          'x-api-key': apiKey,
-          'Accept': 'application/json',
-        },
+        headers: {'x-api-key': apiKey, 'Accept': 'application/json'},
         responseType: ResponseType.json,
       ),
     );
@@ -38,11 +35,13 @@ class ApiClient {
       );
     }
 
-    dio.interceptors.add(InterceptorsWrapper(
-      onError: (DioException e, handler) {
-        handler.next(e);
-      },
-    ));
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onError: (DioException e, handler) {
+          handler.next(e);
+        },
+      ),
+    );
 
     return dio;
   }

@@ -54,7 +54,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         emit(UserLoaded(users: users, hasReachedMax: true));
       } else {
         currentPage = page;
-        users = [...event.currentUsersList, ...newUsers];
+        if (page == 1) {
+          users = newUsers;
+        } else {
+          users = [...event.currentUsersList, ...newUsers];
+        }
         hasReachedMax = newUsers.length < 10;
 
         emit(UserLoaded(users: users, hasReachedMax: hasReachedMax));
@@ -112,7 +116,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     currentPage = 1;
     hasReachedMax = false;
     users = [];
-    add(GetUserListEvent(pageNumber: '1', ));
+    add(GetUserListEvent(pageNumber: '1'));
   }
-
 }

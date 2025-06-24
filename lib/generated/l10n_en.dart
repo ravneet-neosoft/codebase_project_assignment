@@ -43,7 +43,4 @@ class SEn extends S {
 
   @override
   String get errorTimeout => 'Request timed out. Please try again.';
-
-  @override
-  String get errorUnauthorized => 'Unauthorized access. Please login again.';
 }

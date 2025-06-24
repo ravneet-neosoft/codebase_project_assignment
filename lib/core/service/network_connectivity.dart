@@ -8,7 +8,7 @@ class NetworkConnectivityService with WidgetsBindingObserver {
 
   // Stream controller to broadcast network status
   final StreamController<bool> _connectionStreamController =
-  StreamController<bool>();
+      StreamController<bool>();
 
   Stream<bool> get connectionStream => _connectionStreamController.stream;
 

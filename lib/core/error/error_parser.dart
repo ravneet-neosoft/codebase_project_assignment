@@ -5,7 +5,7 @@ class ErrorParser {
   ErrorParser._();
 
   static String parse(AppError error, S? s) {
-    if(s == null){
+    if (s == null) {
       return "";
     }
     switch (error.type) {
@@ -17,10 +17,8 @@ class ErrorParser {
         return s.serverError;
       case AppErrorType.timeout:
         return s.errorTimeout;
-      case AppErrorType.unauthorized:
-        return s.errorUnauthorized;
       case AppErrorType.unknown:
-      return s.errorMsg;
+        return s.errorMsg;
     }
   }
 }

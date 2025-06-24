@@ -14,7 +14,6 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final size = MediaQuery.of(context).size;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
@@ -22,7 +21,7 @@ class UserCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.04,
+          horizontal: 16,
           vertical: 10,
         ),
         leading: CircleAvatar(

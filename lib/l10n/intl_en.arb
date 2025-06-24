@@ -11,6 +11,5 @@
   "serverError": "Server Error, try again later",
   "noInternetAndCached": "No Internet and No Cached Data Found.",
   "noInternet": "No Internet Connection.",
-  "errorTimeout": "Request timed out. Please try again.",
-  "errorUnauthorized": "Unauthorized access. Please login again."
+  "errorTimeout": "Request timed out. Please try again."
 }

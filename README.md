@@ -1,6 +1,6 @@
-# 📱 Codebase Project Assignment
+# 📱 Flutter User Directory App – Codebase Assignment
 
-A **Flutter-based User Directory App** that fetches user data from an API, supports **pagination**, **offline caching via SharedPreferences**, and **real-time internet connectivity detection using Bloc** — all built with **Clean Architecture** and **GetIt for DI**.
+A **Flutter-based User Directory App** that fetches user data from an API, supports **pagination**, **offline caching via Hive**, and **real-time internet connectivity detection using Bloc** — all built with **Clean Architecture** and **GetIt for DI**.
 
 ---
 
@@ -10,7 +10,7 @@ A **Flutter-based User Directory App** that fetches user data from an API, suppo
 - **Bloc for State Management – No setState(), fully reactive**
 - **GetIt for DI – Clean and scalable dependency injection**
 - **Dio for API Calls – Efficient and powerful networking**
-- **Shared Preferences Caching – Works offline with local data**
+- **Hive Caching – Works offline with local data**
 - **Real-Time Connectivity Detection – UI auto-updates on network changes**
 - **Clean Architecture – Structured and maintainable codebase**
 - **Localization Ready – Easily add multi-language support**
@@ -23,7 +23,7 @@ A **Flutter-based User Directory App** that fetches user data from an API, suppo
 lib/
 ├── core/
 │   ├── connectivity_bloc/        # Bloc for connectivity state
-│   ├── constants/                # App strings, colors, etc.
+│   ├── constants/                # colors
 │   ├── di/                       # Dependency injection setup
 │   ├── error/                    # Error handling classes
 │   ├── network/                  # Network status checker
@@ -67,6 +67,9 @@ cd codebase_project_assignment
 ```sh
 flutter pub get
 ```
+
+### **3️⃣ Setup Hive for Local Storage**
+Run the following command to generate `.g.dart` files for Hive models:
 ```sh
 flutter pub run build_runner build --delete-conflicting-outputs
 ```

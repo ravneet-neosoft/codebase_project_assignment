@@ -15,10 +15,7 @@ class UserLoaded extends UserState {
   final List<UserEntity> users;
   final bool hasReachedMax;
 
-  const UserLoaded({
-    required this.users,
-    required this.hasReachedMax,
-  });
+  const UserLoaded({required this.users, required this.hasReachedMax});
 
   UserLoaded copyWith({
     List<UserEntity>? users,
@@ -35,7 +32,6 @@ class UserLoaded extends UserState {
   List<Object> get props => [users, hasReachedMax];
 }
 
-
 class UserError extends UserState {
   final AppError error;
   const UserError(this.error);
@@ -43,9 +39,3 @@ class UserError extends UserState {
   @override
   List<Object?> get props => [error];
 }
-
-
-
-
-
-

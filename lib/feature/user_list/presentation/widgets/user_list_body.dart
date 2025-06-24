@@ -15,7 +15,6 @@ class UserListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
 
     return RefreshIndicator(
       onRefresh:
@@ -35,7 +34,7 @@ class UserListBody extends StatelessWidget {
             return ListView.builder(
               controller: scrollController,
               padding: EdgeInsets.symmetric(
-                horizontal: size.width * 0.04,
+                horizontal: 14,
                 vertical: 8,
               ),
               itemCount: state.hasReachedMax ? users.length : users.length + 1,

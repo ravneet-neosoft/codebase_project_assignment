@@ -1,6 +1,5 @@
 part of 'user_list_bloc.dart';
 
-
 abstract class UserEvent extends Equatable {
   const UserEvent();
 
@@ -12,7 +11,6 @@ class GetUserListEvent extends UserEvent {
   final String pageNumber;
   final List<UserEntity> currentUsersList;
   final bool forceRefresh;
-
 
   const GetUserListEvent({
     required this.pageNumber,
@@ -37,28 +35,4 @@ class RefreshUserListEvent extends UserEvent {
   const RefreshUserListEvent();
 }
 
-class LoadCachedUserListEvent extends UserEvent {
-  const LoadCachedUserListEvent();
-
-  @override
-  List<Object?> get props => [];
-}
-
-class SetUserErrorEvent extends UserEvent {
-  final AppError error;
-  const SetUserErrorEvent(this.error);
-
-  @override
-  List<Object> get props => [error];
-}
-
 class ScrollReachedBottomEvent extends UserEvent {}
-
-class BackOnlineBannerHandledEvent extends UserEvent {}
-
-class _ShowBackOnlineBannerEvent extends UserEvent {}
-
-
-
-
-
